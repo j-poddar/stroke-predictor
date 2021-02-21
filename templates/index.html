@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Stroke Possibility Predictor</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='stroke_pred_icon.ico') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Website Title -->
+    	<div class="container">
+            <h2 class='container-heading'><span class="heading_font">Stroke Possibility Predictor</span></h2>
+            <div class='description'>
+    			<p>Please answer the following questions to make the prediction:</p>
+    		</div>
+    	</div>
+
+        <!-- Text Area -->
+    	<div class="ml-container">
+    		<form action="{{ url_for('predict') }}" method="POST">
+        		
+        		<input class="form-input" type="text" name="age" placeholder="Enter your age..">
+        		<br>
+                <br>
+                <br>
+                
+        		<input class="form-input" type="text" name="avg_glucose_level" placeholder="Enter average glucose level in blood in mg/dL (e.g. 106)..">
+        		<br>
+                <br>
+                <br>
+                
+        		<input class="form-input" type="text" name="bmi" placeholder="Enter bmi (Body Mass Index) (e.g. 28)..">
+        		<br>
+                <br>
+                <br>
+                
+        		
+        		<div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title">Gender</h5>
+                            <!-- Departure -->
+                                <select name="gender" required="required">
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Other">Other</option>
+                            </select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+                <br>
+                <br>
+                <br>
+                
+        		<div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title">Have hypertension?</h5>
+                            <!-- hypertension -->
+                                <select name="hypertension" required="required">
+                                <option value="hype_No">No</option>
+                                <option value="hype_Yes">Yes</option>
+                            </select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+                <br>
+                <br>
+                <br>
+                
+        		<div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title">Have heart disease?</h5>
+                            <!-- heart_disease -->
+                                <select name="heart_disease" required="required">
+                                <option value="hdis_No">No</option>
+                                <option value="hdis_Yes">Yes</option>
+                            </select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+                <br>
+                <br>
+                <br>
+                
+        		<div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title">Were you ever married?</h5>
+                            <!-- ever_married -->
+                                <select name="ever_married" required="required">
+                                <option value="mar_No">No</option>
+                                <option value="mar_Yes">Yes</option>
+                            </select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+                <br>
+                <br>
+                <br> 
+                
+         		<div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title">Work type</h5>
+                            <!-- work_type -->
+                                <select name="work_type" required="required">
+                                <option value="Private">Private Job</option>
+                                <option value="Self_employed">Self Employed</option>
+                                <option value="children">I am a child</option>
+                                <option value="Govt_job">Government Job</option>
+                                <option value="Never_worked">Never Worked</option>                                                                
+                            </select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+                <br>
+                <br>
+                <br>
+                
+        		<div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title">Residence type</h5>
+                            <!-- Residence_type -->
+                                <select name="Residence_type" required="required">
+                                <option value="Urban">Urban</option>
+                                <option value="Rural">Rural</option>
+                            </select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+                <br>
+                <br>
+                <br>  
+                
+        		<div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title">Do you smoke?</h5>
+                            <!-- smoking_status -->
+                                <select name="smoking_status" required="required">
+                                <option value="Never_Smoked">Never</option>
+                                <option value="Unknown">I prefer not saying</option>
+                                <option value="Formerly_Smoked">I used to smoke</option>
+                                <option value="smokes">Yes I smoke</option>                                
+                            </select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+                <br>
+                <br>
+                <br>                             
+
+        		
+        		
+        		
+        		<input type="submit" class="my-cta-button" value="Predict">
+        	</form>
+    	</div>
+
+        <!-- Footer -->
+       <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/j-poddar/stroke-predictor"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/jaitashri-poddar/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://medium.com/@jpoddar"><i class="fa fa-medium" aria-hidden="true"></i></a>
+           </div>
+           <p class='footer-description'>A Machine Learning Web App, Built with Flask, Deployed using Heroku.</p>
+           <p class='footer-description'>Created by J Poddar.</p>
+       </div>
+
+    </body>
+</html>
